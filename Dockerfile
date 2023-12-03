@@ -7,4 +7,5 @@ RUN ln -sf /dev/stderr /var/log/apache2/php-error.log
 WORKDIR /var/www/html
 
 COPY . .
+
 CMD apachectl -D FOREGROUND

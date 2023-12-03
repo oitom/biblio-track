@@ -1,5 +1,14 @@
 version: '3'
 services:
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: biblio_track_db
+      MYSQL_USER: ci_user
+      MYSQL_PASSWORD: ci_password
   web:
     build:
       context: .
@@ -10,12 +19,4 @@ services:
       - .:/var/www/html
     depends_on:
       - db
-  db:
-    image: mysql:5.7
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: biblio_track_db
-      MYSQL_USER: ci_user
-      MYSQL_PASSWORD: ci_password
+ 
