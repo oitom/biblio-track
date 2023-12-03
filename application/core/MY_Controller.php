@@ -9,8 +9,8 @@ class MY_Controller extends CI_Controller {
 
     public function loadView($view, $header=null, $body=null, $footer=null) 
     {
-        $this->load->view('layout/header', $header);
+        $this->load->view('layout/cabecalho', $header);
 		$this->load->view($view, $body);
-		$this->load->view('layout/footer', $footer);
+		$this->load->view('layout/rodape', $footer);
     }
 }
