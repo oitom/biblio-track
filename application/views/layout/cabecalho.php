@@ -25,15 +25,23 @@
         </button>
 
         <!-- Itens da Navegação -->
-        <!-- <div class="collapse navbar-collapse " id="navbarNav">
+        <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="#">Livros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cadastar-se</a>
+                    <a class="nav-link" href="">Relatórios</a>
                 </li>
             </ul>
-        </div> -->
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login/sair">Sair</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav> 
