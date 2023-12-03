@@ -14,7 +14,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light nav-bg">
     <div class="container">
         <!-- Logo à Esquerda -->
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <img src="<?= IMAGES ?>logo.png" width="40" height="40" class="d-inline-block align-top" alt="Logo">
             Biblio Track
         </a>
@@ -25,15 +25,15 @@
         </button>
 
         <!-- Itens da Navegação -->
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <!-- <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Criar Conta</a>
+                    <a class="nav-link" href="#">Cadastar-se</a>
                 </li>
             </ul>
-        </div>
+        </div> -->
     </div>
 </nav> 

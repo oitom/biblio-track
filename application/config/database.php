@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql',
+	'hostname' => 'db',
 	'username' => 'ci_user',
 	'password' => 'ci_password',
 	'database' => 'biblio_track_db',

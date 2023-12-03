@@ -3,25 +3,19 @@ services:
   web:
     build:
       context: .
+      dockerfile: Dockerfile
     ports:
       - "8080:80"
     volumes:
-      - ./application:/var/www/html/application
-      - ./system:/var/www/html/system
-      - ./public:/var/www/html/public
+      - .:/var/www/html
     depends_on:
-      - mysql
-  mysql:
+      - db
+  db:
     image: mysql:5.7
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: biblio_track_db
       MYSQL_USER: ci_user
       MYSQL_PASSWORD: ci_password
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-
-volumes:
-  mysql_data:

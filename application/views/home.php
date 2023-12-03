@@ -7,8 +7,8 @@
       </h1>
       <h6>Econtre uma variedade de livros em nossa plataforma.</h6>
       <div class="btns-home">
-        <a href="#">Login</a>
-        <a href="#">Criar conta</a>
+        <a href="/login">Login</a>
+        <a href="/cadastre-se">Cadastar-se</a>
       </div>
     </div>
 </section>
