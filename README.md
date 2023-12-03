@@ -25,14 +25,18 @@ BiblioTrack - App de gerenciamento de livros em CodeIgniter 3
     ```bash
     docker-compose up -d
     ```
+4. Aguarde alguns segundos até os seviços ficarem prontos.
+    ```
+    Isso pode levar até uns 30 segundos.
+    ```
 
-4. Execute as migrations necessárias para construir os dados da aplicação (aguarde alguns segundos para executar em caso de erro ):
+5. Execute as migrations necessárias para construir os dados da aplicação:
 
     ```
     docker-compose exec web php index.php migrate
     ```
 
-5. O projeto estará acessível em [http://localhost:8080](http://localhost:8080).
+6. O projeto estará acessível em [http://localhost:8080](http://localhost:8080).
 
 ## Parando os contêineres
 
