@@ -83,3 +83,14 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+define('URL', 'http://localhost:8080');
+define('CSS', URL.'css/');
+define('FONTS', URL.'fonts/');
+define('IMG', URL.'img/');
+define('IMAGES', URL.'images/');
+define('JS', URL.'js/');
+define('SASS', URL.'sass/');
+define('IONICONS', URL.'ionicons/');
+define('SELECTS', URL.'select/');
+define('URLUPLOAD', APPPATH."uploads/");
