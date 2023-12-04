@@ -37,7 +37,7 @@
                     <a class="nav-link" href="/principal">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/livros">Livros</a>
+                    <a class="nav-link" href="/meus-livros">Meus Livros</a>
                 </li>
             </ul>
         </div>

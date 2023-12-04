@@ -89,3 +89,4 @@ define('IMAGES', URL.'public/assets/images/');
 define('CSS', URL.'public/assets/css/');
 define('FONTS', URL.'public/assets/fonts/');
 define('JS', URL.'public/assets/js/');
+define('UPLOAD', URL.'public/assets/upload/');

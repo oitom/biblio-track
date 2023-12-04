@@ -192,6 +192,20 @@ img.img-rodape {
 .mb-180{
   margin-bottom: 180px;
 }
+h2.titulo{
+  text-align: center;
+  margin-top: 40px;
+  color: #2b2b2b;
+}
+.t-c{
+  text-align: center;
+}
+.card-menu{
+  height: 85px;
+}
+.text-md{
+  font-size: 15px;
+}
 /* Estilos para telas menores, como tablets e smartphones */
 @media (max-width: 768px) {
   #slider-section>div {
@@ -209,5 +223,12 @@ img.img-rodape {
   .btns-home>a {
     width: 100%;
     margin: 8px 0;
+  }
+
+}
+@media (min-width: 992px) {
+  .col-lg-3 {
+    flex: 0 0 auto;
+    width: auto;
   }
 }
