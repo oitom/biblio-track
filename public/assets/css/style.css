@@ -168,6 +168,30 @@ p.error {
 p.text-sm {
   font-size: 15px;
 }
+img.imgsm {
+  width: 32px;
+  margin-top: -11px;
+}
+h5.card-title.text-muted.text-sm {
+  font-size: 13px;
+}
+.imgsmm {
+  width: 15px;
+  margin-top: -4px;
+}
+.cb{
+  color: #000!important;
+}
+p>em{
+  color: #e59285;
+}
+img.img-rodape {
+  display: block;
+  margin: 0 auto;
+}
+.mb-180{
+  margin-bottom: 180px;
+}
 /* Estilos para telas menores, como tablets e smartphones */
 @media (max-width: 768px) {
   #slider-section>div {

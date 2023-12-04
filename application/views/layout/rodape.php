@@ -1,4 +1,5 @@
   <footer>
+    <img src="<?= IMAGES ?>logo.png" width="80" height="80" class="img-rodape" alt="Logo">
     <p>Biblio Track - 2023 - Design & Develpment by <a href="https://github.com/oitom" target="_blank">@oitom</a></p>
   </footer>
   

@@ -23,11 +23,14 @@ class Login extends MY_Controller {
             $this->loadView('login', array("erro"=> $data['errors']));
         } else {
             $this->load->model('Usuario_model');
+            $this->load->model('Endereco_model');
+
             $email = $this->input->post('email');
             $password = $this->input->post('password');
 
             $user = $this->Usuario_model->getUserByEmail($email);
-
+            $endereco = $this->Endereco_model->getEnderecoByUser($user->id);
+            
             // if ($user && password_verify($password, $user->senha)) {
             if ($user && $user->status == 'ativo' && password_verify($password, $user->senha)) {
                 $session_data = array(
@@ -35,6 +38,8 @@ class Login extends MY_Controller {
                     'user_nome' => $user->nome,
                     'user_perfil' => $user->perfil,
                     'user_email' => $user->email,
+                    'user_cep' => $endereco->cep,
+                    'user_cidade' => $endereco->cidade,
                     'session_hash' => md5(uniqid(rand(), true)),
                     'expire_time' => time() + 600, // Define o tempo de expiração para 10 minutos (600 segundos)
                 );

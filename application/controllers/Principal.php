@@ -11,7 +11,11 @@ class Principal extends MY_Controller {
 	
   public function index()
 	{
-		$this->loadView('principal');
+
+    $cidade = $this->session->userdata('user_cidade');
+    $dados_clima = $this->obterDadosClima($cidade);
+
+		$this->loadView('principal', array("clima"=> $dados_clima));
 	}
 
 }

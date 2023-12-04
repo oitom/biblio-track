@@ -61,4 +61,28 @@ class MY_Controller extends CI_Controller {
       'TO' => 'Tocantins'
     );
   }
+
+  public function obterDadosClima($cidade="") {
+    $hoje = date("Ymd");
+    $chaveAPI = '9d80612e';
+
+    $url = "https://api.hgbrasil.com/weather?key={$chaveAPI}&city_name={$cidade}&date={$hoje}&array_limit=1&fields=only_results";
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $resposta = curl_exec($ch);
+    curl_close($ch);
+    $dados = json_decode($resposta, true);
+
+    $dadosClima = array(
+      "temperatura_atual"=> $dados["temp"],
+      "descricao"=> $dados["description"],
+      "cidade"=> $dados["city"],
+      "temp_img"=> IMAGES . $dados["condition_slug"] .".svg",
+      "temp_min"=> $dados["forecast"][0]["min"],
+      "temp_max"=> $dados["forecast"][0]["max"],
+    );
+    return $dadosClima;
+  }
+
 }
