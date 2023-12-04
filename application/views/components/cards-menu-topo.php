@@ -36,10 +36,9 @@
 
         <h5 class="card-title text-muted text-sm">
           <?=$clima['descricao']; ?>
-
-          <img src="<?=IMAGES?>temperature_min.png" class="imgsmm">
+          <i class="bi bi-thermometer"></i>
           <?=$clima['temp_min']; ?>°C / <?=$clima['temp_max']; ?>°C
-          <img src="<?=IMAGES?>temperature_max.png" class="imgsmm">
+          <i class="bi bi-thermometer-high"></i>
         </h5>                   
     </div>
   </div>

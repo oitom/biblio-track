@@ -301,6 +301,12 @@ p.text-muted.itc>a {
 h5.card-title.text-muted.text-md.cb {
   height: 32px;
 }
+i.bi.bi-thermometer {
+  color: #4590ff;
+}
+i.bi.bi-thermometer-high {
+  color: #e75151;
+}
 /* Estilos para telas menores, como tablets e smartphones */
 @media (max-width: 768px) {
   #slider-section>div {

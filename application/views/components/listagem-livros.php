@@ -27,7 +27,7 @@
 <div class="row">
   <div class="row">
       <div class="col-6">
-          <p class="text-muted itc">Foram encontrados <?=count($items)?> resultados para sua busca.</p>
+          <p class="text-muted itc">Foram encontrados <em><?=count($items)?> livros</em> para sua busca.</p>
       </div>
       <div class="col-6">
           <p class="text-muted itc"><a href="/principal">Limpar</a></p>
@@ -93,12 +93,13 @@
                     <a href="/" class="btn btn-secondary">Editar</a>
                 </div>  
                 <div>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Excluir</button>
                 </div>
               </div>
           </div>
       </div>
   </div>
+  
   <?php endforeach; ?>
   <!-- Items -->
 </div>
