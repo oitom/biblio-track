@@ -9,6 +9,11 @@ class Usuario_model extends CI_Model {
   public function inserir_usuario($dados_usuario) 
   {
     $this->db->insert('usuarios', $dados_usuario);
-    return $this->db->affected_rows() > 0;
+
+    if ($this->db->affected_rows() > 0) {
+      return $this->db->insert_id();
+    } else {
+      return FALSE;
+    }
   }
 }
