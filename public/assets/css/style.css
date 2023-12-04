@@ -162,7 +162,12 @@ p.error {
   text-align: center;
   color: #000;
 }
-
+.alert.alert-danger {
+  font-size: 12px;
+}
+p.text-sm {
+  font-size: 15px;
+}
 /* Estilos para telas menores, como tablets e smartphones */
 @media (max-width: 768px) {
   #slider-section>div {

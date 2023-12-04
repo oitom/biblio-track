@@ -29,7 +29,7 @@
         </button>
 
         <!-- Itens da Navegação -->
-        <?php if($header["session_current"]) { ?>
+        <?php if($header["session_data"]) { ?>
         <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">

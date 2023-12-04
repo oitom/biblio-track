@@ -9,11 +9,11 @@ class MY_Controller extends CI_Controller {
 
   public function loadView($view, $body=null) 
   {
-    $session_current = '';
+    $session_data = '';
     if(isset($this->session->userdata['session_hash']))
-        $session_current = $this->session->userdata['session_hash'];
+        $session_data = $this->session->userdata;
       
-    $this->load->view('layout/cabecalho', array("header"=> array("session_current"=> $session_current)));
+    $this->load->view('layout/cabecalho', array("header"=> array("session_data"=> $session_data)));
     $this->load->view($view, $body);
     $this->load->view('layout/rodape');
   }

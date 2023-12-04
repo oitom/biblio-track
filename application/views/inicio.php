@@ -14,9 +14,9 @@
 <script>
   $(document).ready(function() {
     handleResize();
-      $(window).resize(function() {
-        handleResize();
-      });
+    $(window).resize(function() {
+      handleResize();
+    });
   });
 
   function handleResize() {
