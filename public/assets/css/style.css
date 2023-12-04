@@ -222,7 +222,8 @@ h2.titulo{
   background: #ffffff;
 }
 .card-items-list{
-  min-height: 300px;
+  min-height: 325px;
+  max-height: 325px;
 }
 img.card-img-top {
   width: 60%;
@@ -238,6 +239,67 @@ img.card-img-top {
 .card-items-desc{
   font-size: 13px;
   color: #2b2b2b;
+}
+#buscar-btn{
+  width: 100%;
+  background: rgba(0,0,0,0) none repeat scroll 0 0;
+  border: 1px solid #333;
+  color: #333;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 34px;
+  padding: 2px 20px 0;
+  text-transform: uppercase;
+  transition: all .4s ease 0s;
+}
+#buscar-btn:hover {
+  background-color: #26d5b8;
+  box-shadow: 0 0 0 0.25rem #26d5b86e;
+  color: #000;
+  border-color: #000;
+}
+.itc{
+  font-size: 12px;
+  font-style: italic;
+}
+input, select, button {
+  font-size: 14px!important;
+}
+li.page-item {
+  width: 34px;
+  font-size: 16px;
+  outline: none;
+  background: #CCC;
+  text-align: center;
+  margin: 4px;
+}
+span.page-link {
+  background: #1abc9c!important;
+  border: none!important;
+  z-index: auto!important;
+}
+li.page-item>a {
+  text-decoration: none;
+  margin-top: 5px;
+  display: block;
+  color: #000;
+}
+h5.card-title.card-items-title>em {
+  font-size: 12px;
+  display: block;
+  color: #16a085;
+  font-style: normal;
+}
+.muted-text>i {
+  color: #1abc9c;
+  font-size: 18px;
+}
+p.text-muted.itc>a {
+  color: #1abc9c;
+  float: right;
+}
+h5.card-title.text-muted.text-md.cb {
+  height: 32px;
 }
 /* Estilos para telas menores, como tablets e smartphones */
 @media (max-width: 768px) {

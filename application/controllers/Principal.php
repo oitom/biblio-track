@@ -23,15 +23,18 @@ class Principal extends MY_Controller {
     $dados_categoria = $this->formataLivrosPorCategoria($resultCategorias);
 
     // dados listagem home
+    $categoria =  $this->input->get('categoria');
     $filtro =  $this->input->get('filtro');
     $config = $this->configPaginacao();
     $config['base_url'] = base_url('principal/index');
-    $config['total_rows'] = $this->Livro_model->count_filtered_books($filtro);
+    $config['total_rows'] = $this->Livro_model->count_filtered_books($filtro, $categoria);
     $config['per_page'] = 9;
     $config['uri_segment'] = 3;
+    $config['suffix'] = '?' . http_build_query(['filtro' => $filtro, 'categoria' => $categoria]);
+
 
     $this->pagination->initialize($config);
-    $data['items'] = $this->Livro_model->getLivroByFiltro($filtro, $config['per_page'], $offset);
+    $data['items'] = $this->Livro_model->getLivroByFiltro($filtro, $categoria, $config['per_page'], $offset);
     
     $data = array(
       "clima"=> $dados_clima, 
