@@ -206,6 +206,39 @@ h2.titulo{
 .text-md{
   font-size: 15px;
 }
+.lendo{
+  /* background: #9bd5cc; */
+  background: #adb5bd;
+}
+.quero_ler{
+  /* background: #b9d1f5; */
+  background: #dbdbdb;
+}
+.ja_li{
+  /* background: #edd58d; */
+  background: #f1f0f0;
+}
+.clima_tempo{
+  background: #ffffff;
+}
+.card-items-list{
+  min-height: 300px;
+}
+img.card-img-top {
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+}
+.card-items-title {
+  font-size: 18px;
+  text-align: center;
+  color: #000;
+  font-weight: lighter;
+}
+.card-items-desc{
+  font-size: 13px;
+  color: #2b2b2b;
+}
 /* Estilos para telas menores, como tablets e smartphones */
 @media (max-width: 768px) {
   #slider-section>div {

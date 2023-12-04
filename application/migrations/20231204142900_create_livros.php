@@ -33,13 +33,24 @@ class Migration_Create_Livros extends CI_Migration {
         'type' => 'VARCHAR',
         'constraint' => '30',
       ),
+      'categoria' => array(
+        'type' => 'ENUM("quero ler", "lendo", "ja li")',
+        'default' => 'quero ler',
+      ),
       'data_cadastro' => array(
-        'type' => 'DATE',
-      )
+        'type' => 'DATE'
+      ),
+      'usuario_id' => array(
+        'type' => 'INT',
+        'constraint' => 11,
+      ),
     ));
 
     $this->dbforge->add_key('id', TRUE);
     $this->dbforge->create_table('livros');
+
+    $this->db->query('ALTER TABLE livros CHANGE COLUMN usuario_id usuario_id INT(5) UNSIGNED NOT NULL AFTER data_cadastro');
+    $this->db->query('ALTER TABLE livros ADD CONSTRAINT fk_livros_usuario_id FOREIGN KEY (usuario_id) REFERENCES usuarios (id) ON UPDATE CASCADE ON DELETE CASCADE');
   }
 
   public function down()

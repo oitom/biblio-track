@@ -19,7 +19,7 @@ class Migration_Add_Usuarios extends CI_Migration {
         'email' => 'joao@email.com',
         'senha' => password_hash('joao', PASSWORD_DEFAULT),
         'perfil' => 'padrao',
-        'status' => 'desativado'
+        'status' => 'ativo'
       ),
     );
     $this->db->insert_batch('usuarios', $data);

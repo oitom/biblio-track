@@ -5,10 +5,6 @@ class Login extends MY_Controller {
 
     public function __construct() {
         parent::__construct();
-
-        // if($this->validarSessao()) {
-        //     redirect('principal');
-        // }
     }
 
     public function index() 
@@ -41,13 +37,12 @@ class Login extends MY_Controller {
                     'user_cep' => $endereco->cep,
                     'user_cidade' => $endereco->cidade,
                     'session_hash' => md5(uniqid(rand(), true)),
-                    'expire_time' => time() + 600, // Define o tempo de expiração para 10 minutos (600 segundos)
+                    'expire_time' => time() + 600,
                 );
             
                 $this->session->set_userdata($session_data);
                 redirect('principal');
             } else {
-                // Autenticação falhou, redirecione para a página de login com mensagem de erro.
                 $this->session->sess_destroy();
                 $data['errors'] = 'E-mail ou Senha inválidos!';
                 $this->loadView('login', array("erro"=> $data['errors']));

@@ -13,7 +13,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'André Vianco',
         'n_paginas' => '349',
         'capa' => 'capa_padrao.png',
+        'categoria' => 'quero ler',
         'data_cadastro' => '2023-12-04',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'O Senhor dos Anéis',
@@ -21,7 +23,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'J.R.R. Tolkien',
         'n_paginas' => 1178,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'quero ler',
         'data_cadastro' => '2023-12-04',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => '1984',
@@ -29,7 +33,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'George Orwell',
         'n_paginas' => 328,
         'capa' => 'capa_padrao.png', 
+        'categoria' => 'quero ler',
         'data_cadastro' => '2023-06-08',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'A Culpa é das Estrelas',
@@ -37,7 +43,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'John Green',
         'n_paginas' => 313,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'lendo',
         'data_cadastro' => '2023-01-10',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'A Revolução dos Bichos',
@@ -45,7 +53,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'George Orwell',
         'n_paginas' => 141,
         'capa' => 'capa_padrao.png', 
+        'categoria' => 'lendo',
         'data_cadastro' => '2023-08-17',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'Dom Quixote',
@@ -53,7 +63,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'Miguel de Cervantes',
         'n_paginas' => 863,
         'capa' => 'capa_padrao.png', 
+        'categoria' => 'ja li',
         'data_cadastro' => '2023-01-16',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'Cem Anos de Solidão',
@@ -61,7 +73,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'Gabriel García Márquez',
         'n_paginas' => 417,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'ja li',
         'data_cadastro' => '2023-05-30',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'O Pequeno Príncipe',
@@ -69,7 +83,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'Antoine de Saint-Exupéry',
         'n_paginas' => 96,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'ja li',
         'data_cadastro' => '2023-04-06',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'Crime e Castigo',
@@ -77,7 +93,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'Fiódor Dostoiévski',
         'n_paginas' => 551,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'ja li',
         'data_cadastro' => '2023-01-25',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'Orgulho e Preconceito',
@@ -85,7 +103,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'Jane Austen',
         'n_paginas' => 279,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'ja li',
         'data_cadastro' => '2023-01-28',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'A Metamorfose',
@@ -93,7 +113,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'Franz Kafka',
         'n_paginas' => 55,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'ja li',
         'data_cadastro' => '2023-10-15',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'A Revolta de Atlas',
@@ -101,7 +123,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'Ayn Rand',
         'n_paginas' => 1088,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'quero ler',
         'data_cadastro' => '2023-10-10',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'O Nome do Vento',
@@ -109,7 +133,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'Patrick Rothfuss',
         'n_paginas' => 662,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'quero ler',
         'data_cadastro' => '2023-03-27',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'A Guerra dos Tronos',
@@ -117,7 +143,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'George R.R. Martin',
         'n_paginas' => 592,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'ja li',
         'data_cadastro' => '2023-08-06', 
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'Duna',
@@ -125,7 +153,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'Frank Herbert',
         'n_paginas' => 592,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'quero ler',
         'data_cadastro' => '2023-08-01', 
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'O Silmarillion',
@@ -133,7 +163,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'J.R.R. Tolkien',
         'n_paginas' => 365,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'quero ler',
         'data_cadastro' => '2023-09-15',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'O Alquimista',
@@ -141,7 +173,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'Paulo Coelho',
         'n_paginas' => 163,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'ja li',
         'data_cadastro' => '2023-01-01',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'O Senhor das Moscas',
@@ -149,7 +183,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'William Golding',
         'n_paginas' => 208,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'quero ler',
         'data_cadastro' => '2023-09-17',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'A Sangue Frio',
@@ -157,7 +193,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'Truman Capote',
         'n_paginas' => 343,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'quero ler',
         'data_cadastro' => '2023-01-17',
+        'usuario_id' => 1,
       ),
       array(
         'titulo' => 'O Hobbit',
@@ -165,7 +203,9 @@ class Migration_Add_Livros extends CI_Migration {
         'autor' => 'J.R.R. Tolkien',
         'n_paginas' => 310,
         'capa' => 'capa_padrao.png',
+        'categoria' => 'quero ler',
         'data_cadastro' => '2023-09-21',
+        'usuario_id' => 1,
       ),
     );
     $this->db->insert_batch('livros', $data);
@@ -173,6 +213,6 @@ class Migration_Add_Livros extends CI_Migration {
 
   public function down()
   {
-    $this->db->query('TRUNCATE TABLE livros');
+    $this->db->query('TRUNCATE TABLE livros WHERE usuario_id=1');
   }
 }
