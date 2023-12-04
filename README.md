@@ -27,7 +27,7 @@ BiblioTrack - App de gerenciamento de livros em CodeIgniter 3
     ```
 4. Aguarde alguns segundos até os seviços ficarem prontos.
     ```
-    Isso pode levar até uns 30 segundos.
+    Isso pode levar até 30 segundos.
     ```
 
 5. Execute as migrations necessárias para construir os dados da aplicação:
