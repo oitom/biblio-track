@@ -1,22 +1,24 @@
   <footer>
     <p>Biblio Track - 2023 - Design & Develpment by <a href="https://github.com/oitom" target="_blank">@oitom</a></p>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
   <script>
-    $(document).ready(function() {
-      handleResize();
-        $(window).resize(function() {
-          handleResize();
-        });
-    });
+   $(document).ready(function() {
+      var footer = $('footer');
+      var lastScrollTop = 0;
 
-    function handleResize() {
-      let ht = $(window).height();
-      let nw = (ht - 60 - 65);
-      $("#slider-section").css("min-height", nw +"px");
-    }
+      $(window).scroll(function(event) {
+        var st = $(this).scrollTop();
+
+        if (st > lastScrollTop) {
+          footer.css('bottom', '-60px');
+        } else {
+          footer.css('bottom', '0');
+        }
+
+        lastScrollTop = st;
+      });
+    });
   </script>
 </body>
 </html>

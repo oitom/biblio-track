@@ -9,6 +9,10 @@
   <!-- bootstrap icon -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="<?=CSS?>style.css">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light nav-bg">
@@ -25,17 +29,17 @@
         </button>
 
         <!-- Itens da Navegação -->
+        <?php if($header["session_current"]) { ?>
         <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Livros</a>
+                    <a class="nav-link" href="/principal">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Relatórios</a>
+                    <a class="nav-link" href="/livros">Livros</a>
                 </li>
             </ul>
         </div>
-
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -43,5 +47,6 @@
                 </li>
             </ul>
         </div>
+        <?php  } ?>
     </div>
 </nav> 

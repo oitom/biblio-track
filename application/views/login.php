@@ -4,25 +4,28 @@
             <h2 class="mb-4">Login</h2>
             <div class="formulario">
                 
-                <p class="error">
-                    <?=(isset($error)? $error : '') ?>
-                </p>
+                <?php if (isset($erro) && !empty($erro)) : ?>
+                    <div class="alert alert-danger">
+                        <?php echo $erro; ?>
+                    </div>
+                <?php endif; ?>        
 
-                <?php echo form_open('login'); ?>
+                <?= form_open('login'); ?>
                 <div class="form-group">
-                    <label for="email" class="formulario_label">E-mail:</label>
-                    <input type="email" class="form-control formulario_input" id="email" name="email" required>
+                    <?= form_label('E-mail:', 'email', ['class' => 'formulario_label']); ?>
+                    <?= form_input(['type' => 'email', 'name' => 'email', 'id' => 'email', 'class' => 'form-control formulario_input', 'required' => 'required']); ?>
                 </div>
                 <div class="form-group">
-                    <label for="senha" class="formulario_label">Senha:</label>
-                    <input type="password" class="form-control formulario_input" id="password" name="password" required>
+                    <?= form_label('Senha:', 'password', ['class' => 'formulario_label']); ?>
+                    <?= form_password(['name' => 'password', 'id' => 'password', 'class' => 'form-control formulario_input', 'required' => 'required']); ?>
                     <label class="formulario_lr"><a href="/recuperar-minha-senha">Esqueci minha senha</a></label>
                 </div>
                 <div class="row mt-5">
                     <div class="col">
-                        <button type="submit" class="btn btn-primary formulario_btn">Entrar</button>
+                        <?= form_submit(['type' => 'submit', 'value' => 'Entrar', 'class' => 'btn btn-primary formulario_btn']); ?>
                     </div>
                 </div>
+                <?= form_close(); ?>
             </div>
         </div>
     </div>

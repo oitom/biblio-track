@@ -19,7 +19,8 @@ class Login extends MY_Controller {
         $this->form_validation->set_rules('password', 'Password', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->loadView('login');
+            $data['errors'] = validation_errors();
+            $this->loadView('login', array("erro"=> $data['errors']));
         } else {
             $this->load->model('Usuario_model');
             $email = $this->input->post('email');
@@ -43,8 +44,8 @@ class Login extends MY_Controller {
             } else {
                 // Autenticação falhou, redirecione para a página de login com mensagem de erro.
                 $this->session->sess_destroy();
-                $data['error'] = 'E-mail ou Senha inválidos!';
-                $this->loadView('login', null, $data);
+                $data['errors'] = 'E-mail ou Senha inválidos!';
+                $this->loadView('login', array("erro"=> $data['errors']));
             }
         }            
     }

@@ -1,4 +1,3 @@
-<!-- Seção do Slider -->
 <section id="slider-section">
     <div class="containder-fluid">
       <h1>
@@ -12,3 +11,17 @@
       </div>
     </div>
 </section>
+<script>
+  $(document).ready(function() {
+    handleResize();
+      $(window).resize(function() {
+        handleResize();
+      });
+  });
+
+  function handleResize() {
+    let ht = $(window).height();
+    let nw = (ht - 60 - 65);
+    $("#slider-section").css("min-height", nw +"px");
+  }
+</script>
