@@ -11,7 +11,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <?= form_open('cadastro', ['method' => 'post']); ?>
+                    <?= form_open('usuario/cadastro', ['method' => 'post']); ?>
                     
                     <div class="row">                    
                         <div class="col-md-6">

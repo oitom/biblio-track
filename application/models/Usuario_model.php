@@ -1,5 +1,6 @@
 <?php
 class Usuario_model extends CI_Model {
+  
   public function getUserByEmail($email) 
   {
     $this->db->where('email', $email);
@@ -13,7 +14,7 @@ class Usuario_model extends CI_Model {
     if ($this->db->affected_rows() > 0) {
       return $this->db->insert_id();
     } else {
-      return FALSE;
+      return false;
     }
   }
 }

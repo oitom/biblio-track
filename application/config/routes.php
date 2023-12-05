@@ -49,11 +49,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'inicio';
+$route['default_controller'] = 'biblioTrack';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['cadastre-se'] = 'cadastro';
-$route['recuperar-minha-senha'] = 'esquecisenha';
-$route['recuperar-minha-senha/senha_solicitada'] = 'esquecisenha/senha_solicitada';
-$route['livro/(:num)?'] = 'livro/index/$1';
+
+$route['inicio'] = 'biblioTrack/index';
+$route['login'] = 'biblioTrack/login';
+$route['sair'] = 'biblioTrack/sair';
+
+$route['cadastre-se'] = 'usuario/cadastro';
+$route['recuperar-minha-senha'] = 'usuario/esqueci_senha';
+$route['recuperar-minha-senha/senha_solicitada'] = 'usuario/senha_solicitada';
+
+$route['livro'] = 'livro/livro';
+$route['livro/(:num)?'] = 'livro/livro/$1';
 $route['livro/excluir/(:num)'] = 'livro/excluir/$1';
+$route['livro/meus-livros/(:any)?'] = 'livro/index/$1';
+$route['livro/meus-livros'] = 'livro/index/$1';

@@ -5,19 +5,53 @@ class Livro extends MY_Controller {
 
   public function __construct() {
     parent::__construct();
+    $this->load->model('Livro_model');
+    $this->validarSessao();
+  }
+
+  public function index($offset = null)
+  {
+    $this->load->helper('url');
+    $this->load->library('pagination');
+    
+    $cidade = $this->session->userdata('user_cidade');
+    $dados_clima = $this->obterDadosClima($cidade);
+    
+    $resultCategorias = $this->Livro_model->getLivroByCategoria();
+    $dados_categoria = $this->formataLivrosPorCategoria($resultCategorias);
+
+    $categoria =  $this->input->get('categoria');
+    $filtro =  $this->input->get('filtro');
+    $config = $this->configPaginacao();
+
+    $config['base_url'] = base_url('livro/meus-livros');
+    $config['total_rows'] = $this->Livro_model->count_livros_filtrados($filtro, $categoria);
+    $config['per_page'] = 9;
+    $config['uri_segment'] = 3;
+    $config['suffix'] = '?' . http_build_query(['filtro' => $filtro, 'categoria' => $categoria]);
+
+    $this->pagination->initialize($config);
+    $data['items'] = $this->Livro_model->getLivroByFiltro($filtro, $categoria, $config['per_page'], $offset);
+    
+    $data = array(
+      "clima"=> $dados_clima, 
+      "categorias" => $dados_categoria,
+      "items"=> $data['items']
+    );
+		$this->loadView('livro/meus-livros', $data);
+  }
+
+  public function livro($livro_id=null)
+  {
     $this->load->helper('form');
     $this->load->library('form_validation');
-    $this->load->model('Livro_model');
 
     $this->form_validation->set_rules('titulo', 'Titulo', 'required', ['required' => 'O campo {field} é obrigatório.']);
     $this->form_validation->set_rules('descricao', 'Descricao', 'required', ['required' => 'O campo {field} é obrigatório.']);
     $this->form_validation->set_rules('autor', 'Autor', 'required', ['required' => 'O campo {field} é obrigatório.']);
     $this->form_validation->set_rules('n_paginas', 'Número de páginas', 'required', ['required' => 'O campo {field} é obrigatório.']);
     $this->form_validation->set_rules('categoria', 'Categoria', 'required', ['required' => 'O campo {field} é obrigatório.']);
-  }
 
-  public function index($livro_id=null)
-  {
     $data['errors'] = null;
     $acao_realizada = false;
 
@@ -49,6 +83,7 @@ class Livro extends MY_Controller {
         } else {
           $error = $this->upload->display_errors();
           $data['errors'] =  $error;
+
           if($acao == "adicionar")
             $dados['capa'] = "capa_padrao.png";
           else 
@@ -56,7 +91,6 @@ class Livro extends MY_Controller {
         }
         
         if($data['errors'] == null || $data['errors'] == "<p>Nenhum arquivo foi selecionado.</p>") {
-                 
           if($acao == "editar") { 
             $livro = $this->Livro_model->update_livro($livro_id, $dados);
           }
@@ -78,13 +112,29 @@ class Livro extends MY_Controller {
       'opcoes_categorias' => $this->getOpcoesCategorias(),
       'erro' => $data['errors']
     );
-    $this->loadView('livro', $body);
+    $this->loadView('livro/livro', $body);
   }
 
   public function excluir($livro_id)
   {
     $this->Livro_model->excluirLivro($livro_id);
-    redirect('/principal');
+    redirect('livro/meus-livros');
+  }
+
+  private function formataLivrosPorCategoria($dados)
+  {
+    $result = array(
+      "lendo"=> 0,
+      "quero ler"=> 0,
+      "ja li"=> 0,
+    );
+
+    if($dados) {
+      foreach ($dados as $res) {
+        $result[$res->categoria] = $res->quantidade;
+      }
+    }
+    return $result;
   }
 
   private function getLivrosCadastro()

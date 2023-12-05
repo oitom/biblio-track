@@ -34,7 +34,7 @@
         <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/principal">Meus livros</a>
+                    <a class="nav-link" href="/livro/meus-livros">Meus livros</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/livro">Novo Livro</a>
@@ -44,7 +44,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/login/sair">Sair</a>
+                    <a class="nav-link" href="/sair">Sair</a>
                 </li>
             </ul>
         </div>

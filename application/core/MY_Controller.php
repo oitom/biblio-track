@@ -11,7 +11,7 @@ class MY_Controller extends CI_Controller {
   {
     $session_data = '';
     if(isset($this->session->userdata['session_hash']))
-        $session_data = $this->session->userdata;
+      $session_data = $this->session->userdata;
       
     $this->load->view('layout/cabecalho', array("header"=> array("session_data"=> $session_data)));
     $this->load->view($view, $body);
@@ -20,9 +20,7 @@ class MY_Controller extends CI_Controller {
 
   public function validarSessao() 
   {
-    // A sessão expirou ou o usuário não está autenticado, redirecione para a página de login
     if (!($user_id = $this->session->userdata('user_id')) || !($expire_time = $this->session->userdata('expire_time')) > time()) {
-      // Destruir a sessão expirada
       $this->session->sess_destroy(); 
       redirect('/login');
     }

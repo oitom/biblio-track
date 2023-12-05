@@ -1,5 +1,6 @@
 <?php
 class Livro_model extends CI_Model {
+
   public function getLivroById($livro_id) 
   {
     $this->db->where('id', $livro_id);
@@ -33,7 +34,7 @@ class Livro_model extends CI_Model {
     return $query->result_array();
   }
 
-  public function count_filtered_books($filtro = null, $categoria = null)
+  public function count_livros_filtrados($filtro = null, $categoria = null)
   {
     if (!empty($filtro)) {
       $this->db->group_start();
@@ -64,8 +65,7 @@ class Livro_model extends CI_Model {
     if ($query->num_rows() > 0) {
       return $query->result();
     } else {
-      return array(
-      );
+      return array();
     }
   }
 
@@ -76,7 +76,7 @@ class Livro_model extends CI_Model {
     if ($this->db->affected_rows() > 0) {
       return $this->db->insert_id();
     } else {
-      return FALSE;
+      return false;
     }
   }
 

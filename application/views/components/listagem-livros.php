@@ -1,5 +1,5 @@
 <!-- Barra de pesquisa -->
-<form action="<?php echo base_url('principal/index'); ?>" method="get">
+<form action="<?php echo base_url('livro/meus-livros'); ?>" method="get">
   <div class="row">
     <div class="col-md-6">
       <div class="input-group mb-3">
@@ -30,7 +30,7 @@
           <p class="text-muted itc">Foram encontrados <em><?=count($items)?> livros</em> para sua busca.</p>
       </div>
       <div class="col-6">
-          <p class="text-muted itc"><a href="/principal">Limpar</a></p>
+          <p class="text-muted itc"><a href="/livro/meus-livros">Limpar</a></p>
       </div>
   </div>
 
@@ -109,7 +109,9 @@
 </div>
 
 <!-- Paginação -->
+<?php if (count($items) >= 9) : ?>
 <?= $this->pagination->create_links(); ?>
+<?php endif; ?>
 <!-- Paginação -->
 
 <script>
