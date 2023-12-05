@@ -5,6 +5,8 @@ class MY_Controller extends CI_Controller {
   public function __construct() 
   {
     parent::__construct();
+    $this->load->helper('url');
+    // $this->load->library('uri');
   }
 
   public function loadView($view, $body=null) 
@@ -12,8 +14,9 @@ class MY_Controller extends CI_Controller {
     $session_data = '';
     if(isset($this->session->userdata['session_hash']))
       $session_data = $this->session->userdata;
-      
-    $this->load->view('layout/cabecalho', array("header"=> array("session_data"=> $session_data)));
+    
+    $titulo = $this->buscarTituloPagina();
+    $this->load->view('layout/cabecalho', array("header"=> array("session_data"=> $session_data), "titulo"=> $titulo));
     $this->load->view($view, $body);
     $this->load->view('layout/rodape');
   }
@@ -112,5 +115,24 @@ class MY_Controller extends CI_Controller {
     $config['num_tag_close'] = '</li>';
     
     return $config;
+  }
+
+  public function buscarTituloPagina()
+  {
+    $segmento1 = $this->uri->segment(1);
+    $segmento2 = $this->uri->segment(2);
+
+    $titulo = 'Biblio Track';
+
+    if ($segmento1 == "") {
+      $titulo .= ' - Início';
+    } 
+    else if ($segmento2 != "" && !is_numeric($segmento2)) {
+      $titulo .= " - " . ucwords(str_replace('-', ' ', $segmento2));
+    }
+    else {
+      $titulo .= " - " . ucwords(str_replace('-', ' ', $segmento1));
+    }
+    return $titulo;
   }
 }
