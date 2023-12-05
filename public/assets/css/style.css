@@ -333,18 +333,32 @@ div#sugestoes {
 .sugestao {
   width: 100%;
   display: block;
-  height: 200px;
+  height: 150px;
   padding: 15px;
+  background: #e5e5e5;
+  border-bottom: 1px dotted #000;
+  overflow: hidden;
 }
 .sugestao>img {
-  width: 20%;
+  display: block;
+  float: left;
+  height: 90%;
+  margin-right: 20px;
+}
+.sugestao>p {
+  width: 60%;
   display: block;
   float: left;
 }
-.sugestao>p {
-  width: 80%;
-  display: block;
-  float: left;
+p.sug-tit {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+}
+p.sug-aut {
+  margin-top: -17px;
+  font-size: 13px;
+  color: #7d7474;
 }
 .a-img {
   display: block;
@@ -481,7 +495,6 @@ p.modal-desc {
     min-height: 150px;
   }
 }
-
 @media only screen and (max-width: 450px) {
   .col-md-3 {
     flex: 0 0 auto;

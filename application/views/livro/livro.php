@@ -123,67 +123,70 @@
     }
 </script>
 <script>
-$(document).ready(function () {
-  $('#titulo').on('keyup', function () {
-    var titulo = $('#titulo').val();
-    var apiKey = 'AIzaSyDabVqrVFkIBJgJ9kFPQ20Rv7KBMRR2tiY';
-    var apiUrl = 'https://www.googleapis.com/books/v1/volumes?q=' + encodeURIComponent(titulo) + '&key=' + apiKey;
-    var livros = [];
+  $(document).ready(function () {
+    $('#titulo').on('keyup', function () {
+      var titulo = $('#titulo').val();
+      var apiKey = 'AIzaSyDabVqrVFkIBJgJ9kFPQ20Rv7KBMRR2tiY';
+      var apiUrl = 'https://www.googleapis.com/books/v1/volumes?q=' + encodeURIComponent(titulo) + '&key=' + apiKey;
+      var livros = [];
 
-    if (titulo.length >= 5) {
-      $.ajax({
-          url: apiUrl,
-          type: 'GET',
-          dataType: 'json',
-          success: function (data) {
-              $('#sugestoes').html("");
+      if (titulo.length >= 5) {
+        $.ajax({
+            url: apiUrl,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                $('#sugestoes').html("");
 
-              if (data.items) {
-                  for (var i = 0; i < Math.min(5, data.items.length); i++) {
-                      var livro = data.items[i];
-                      var tituloLivro = livro.volumeInfo.title;
-                      var capaLivro = livro.volumeInfo.imageLinks ? livro.volumeInfo.imageLinks.thumbnail : 'http://localhost:8080/public/assets/upload/capa_padrao.png';
-                      livros.push(livro);
+                if (data.items) {
+                    for (var i = 0; i < Math.min(5, data.items.length); i++) {
+                        var livro = data.items[i];
+                        console.log(livro);
+                        var tituloLivro = livro.volumeInfo.title;
+                        var capaLivro = livro.volumeInfo.imageLinks ? livro.volumeInfo.imageLinks.thumbnail : 'http://localhost:8080/public/assets/upload/capa_padrao.png';
+                        var autorLivro = livro.volumeInfo.authors ? livro.volumeInfo.authors.join(', ') : '';
+                        livros.push(livro);
 
-                      var sugestao = $('<div id="s-'+i+'" class="sugestao"">');
-                      sugestao.append('<img src="' + capaLivro + '" alt="Capa do livro">');
-                      sugestao.append('<p>' + tituloLivro + '</p>');                      
+                        var sugestao = $('<div id="s-'+i+'" class="sugestao"">');
+                        sugestao.append('<img src="' + capaLivro + '" alt="Capa do livro">');
+                        sugestao.append('<p class="sug-tit">' + tituloLivro + '</p>');                      
+                        sugestao.append('<p class="sug-aut">' + autorLivro + '</p>');                      
 
-                      sugestao.click(function () {
-                        var idx = $(this).attr('id').split('-')[1];
-                        var livroClicado = livros[idx];
-                        
-                        $('#titulo').val($(this).next('p').text());
-                        $('#sugestoes').empty();
-                        exibirInformacoesLivro(livroClicado);
-                      });
-                      $('#sugestoes').append(sugestao);
-                  }
-              }
-          },
-          error: function (error) {
-            console.log('Erro na solicitação AJAX:', error);
-          }
-      });
+                        sugestao.click(function () {
+                          var idx = $(this).attr('id').split('-')[1];
+                          var livroClicado = livros[idx];
+                          
+                          $('#titulo').val($(this).next('p').text());
+                          $('#sugestoes').empty();
+                          exibirInformacoesLivro(livroClicado);
+                        });
+                        $('#sugestoes').append(sugestao);
+                    }
+                }
+            },
+            error: function (error) {
+              console.log('Erro na solicitação AJAX:', error);
+            }
+        });
+      }
+    });
+
+    function exibirInformacoesLivro(livro) {
+      var tituloLivro = livro.volumeInfo.title;
+      var descricaoLivro = livro.volumeInfo.description ? livro.volumeInfo.description : '';
+      var autorLivro = livro.volumeInfo.authors ? livro.volumeInfo.authors.join(', ') : '';
+      var numPaginasLivro = livro.volumeInfo.pageCount ? livro.volumeInfo.pageCount : '';
+      var capaLivro = livro.volumeInfo.imageLinks ? livro.volumeInfo.imageLinks.thumbnail : '';
+      
+      $("#titulo").val(tituloLivro);
+      $("#descricao").val(descricaoLivro);
+      $("#autor").val(autorLivro);
+      $("#n_paginas").val(numPaginasLivro);
+      
+      if(capaLivro != '') {
+        $("#imagemLivro").attr('src', capaLivro);
+        $("#capa-externa").val(capaLivro);
+      }
     }
   });
-
-  function exibirInformacoesLivro(livro) {
-    var tituloLivro = livro.volumeInfo.title;
-    var descricaoLivro = livro.volumeInfo.description ? livro.volumeInfo.description : '';
-    var autorLivro = livro.volumeInfo.authors ? livro.volumeInfo.authors.join(', ') : '';
-    var numPaginasLivro = livro.volumeInfo.pageCount ? livro.volumeInfo.pageCount : '';
-    var capaLivro = livro.volumeInfo.imageLinks ? livro.volumeInfo.imageLinks.thumbnail : '';
-    
-    $("#titulo").val(tituloLivro);
-    $("#descricao").val(descricaoLivro);
-    $("#autor").val(autorLivro);
-    $("#n_paginas").val(numPaginasLivro);
-    
-    if(capaLivro != '') {
-      $("#imagemLivro").attr('src', capaLivro);
-      $("#capa-externa").val(capaLivro);
-    }
-  }
-});
 </script>
