@@ -171,7 +171,7 @@ p.error {
   text-align: center;
   color: #000;
 }
-.alert.alert-danger {
+.alert.alert-danger, .alert.alert-success{
   font-size: 12px;
 }
 p.text-sm {

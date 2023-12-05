@@ -18,6 +18,7 @@ class Livro extends MY_Controller {
 
   public function index($livro_id=null)
   {
+    $data['errors'] = null;
     $acao_realizada = false;
 
     if(!empty($livro_id)) {
@@ -32,10 +33,9 @@ class Livro extends MY_Controller {
 
     if ($this->form_validation->run() === FALSE) {
       $data['errors'] = validation_errors();
-      $this->loadView('livro', array('acao' => $acao, 'acao_realizada'=> $acao_realizada, 'livro_id'=> $livro_id, 'dados'=> $dados, 'opcoes_categorias' => $this->getOpcoesCategorias(), "erro"=> $data['errors']));
+    
     } else {
       $dados = $this->getDadosPost();
-
       if ($this->input->server('REQUEST_METHOD') === 'POST') {
         $config['upload_path']   =  FCPATH . '/public/assets/upload/';
         $config['allowed_types'] = 'gif|jpg|jpeg|png|webp';
@@ -46,7 +46,17 @@ class Livro extends MY_Controller {
         if ($this->upload->do_upload('capa')) {
           $upload_data = $this->upload->data();
           $dados['capa'] = $upload_data['file_name'];
-
+        } else {
+          $error = $this->upload->display_errors();
+          $data['errors'] =  $error;
+          if($acao == "adicionar")
+            $dados['capa'] = "capa_padrao.png";
+          else 
+            $dados['capa'] = $this->Livro_model->getLivroById($livro_id)["capa"];
+        }
+        
+        if($data['errors'] == null || $data['errors'] == "<p>Nenhum arquivo foi selecionado.</p>") {
+                 
           if($acao == "editar") { 
             $livro = $this->Livro_model->update_livro($livro_id, $dados);
           }
@@ -54,20 +64,21 @@ class Livro extends MY_Controller {
             $livro = $this->Livro_model->inserir_livro($dados);
             $livro_id = $livro;
           }
-          
-          if($livro) {
-            $acao_realizada = true;
-          }
-    
-          $this->loadView('livro', array('acao' => $acao, 'acao_realizada'=> $acao_realizada, 'livro_id'=> $livro_id, 'dados'=> $dados, 'opcoes_categorias' => $this->getOpcoesCategorias()));
-        } else {
-          $error = $this->upload->display_errors();
-          $data['errors'] = $error;
-          $dados['capa'] = "capa_padrao.png";
-          $this->loadView('livro', array('acao' => $acao, 'acao_realizada'=> $acao_realizada, 'livro_id'=> $livro_id, 'dados'=> $dados, 'opcoes_categorias' => $this->getOpcoesCategorias(), "erro"=> $data['errors']));
+          $data['errors'] = null; 
+          $acao_realizada = true;
         }
       }
     }
+
+    $body = array(
+      'acao' => $acao, 
+      'acao_realizada'=> $acao_realizada, 
+      'livro_id'=> $livro_id, 
+      'dados'=> $dados, 
+      'opcoes_categorias' => $this->getOpcoesCategorias(),
+      'erro' => $data['errors']
+    );
+    $this->loadView('livro', $body);
   }
 
   public function getLivrosCadastro()
@@ -78,6 +89,7 @@ class Livro extends MY_Controller {
       "autor" => "",
       "n_paginas" => "",
       "categoria" => "",
+      'capa' => 'capa_padrao.png'
     );
   }
 

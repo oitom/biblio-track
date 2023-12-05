@@ -34,10 +34,10 @@
         <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/principal">Home</a>
+                    <a class="nav-link" href="/principal">Meus livros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/novo-livro">Novo Livro</a>
+                    <a class="nav-link" href="/livro">Novo Livro</a>
                 </li>
             </ul>
         </div>
