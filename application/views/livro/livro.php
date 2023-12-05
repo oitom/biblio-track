@@ -39,6 +39,8 @@
                   <?= form_label('Título:', 'titulo', ['class' => 'formulario_label']); ?>
                   <?= form_input(['type' => 'text', 'name' => 'titulo', 'id' => 'titulo', 'class' => 'form-control formulario_input', 'required' => 'required', 'maxlength' => '50', 'value' => set_value('nome', $dados['titulo'])]); ?>
                 </div>
+                <div id="sugestoes"></div>
+                
               </div>
               <div class="col-md-12">
                 <div class="form-group">
@@ -73,6 +75,7 @@
                 <div class="form-group">
                   <?= form_label('Capa do livro:', 'capa', ['class' => 'formulario_label']); ?>
                   <?= form_upload(['name' => 'capa', 'id' => 'capa', 'class' => 'form-control', 'accept' => 'image/*', 'onchange' => 'exibirImagemSelecionada()']); ?>
+                  <input type="hidden" name="capa-externa" id="capa-externa">
                 </div>
               </div>
 
@@ -80,7 +83,12 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <?= form_label('Capa do livro atual:', 'capa_atual', ['class' => 'formulario_label']); ?>
-                  <img id="imagemLivro" src="<?= UPLOAD . $dados['capa'] ?>" class="card-img-top" alt="Capa do Livro">
+
+                  <?php if (strpos($dados['capa'], "books.google") !== false) : ?>
+                    <img id="imagemLivro" src="<?= $dados['capa'] ?>" class="card-img-top" alt="Capa do Livro">
+                  <? else : ?>
+                      <img id="imagemLivro" src="<?= UPLOAD . $dados['capa'] ?>" class="card-img-top" alt="Capa do Livro">
+                  <? endif; ?>
                 </div>
               </div>
               
@@ -113,4 +121,69 @@
             leitor.readAsDataURL(inputImagem.files[0]);
         }
     }
+</script>
+<script>
+$(document).ready(function () {
+  $('#titulo').on('keyup', function () {
+    var titulo = $('#titulo').val();
+    var apiKey = 'AIzaSyDabVqrVFkIBJgJ9kFPQ20Rv7KBMRR2tiY';
+    var apiUrl = 'https://www.googleapis.com/books/v1/volumes?q=' + encodeURIComponent(titulo) + '&key=' + apiKey;
+    var livros = [];
+
+    if (titulo.length >= 5) {
+      $.ajax({
+          url: apiUrl,
+          type: 'GET',
+          dataType: 'json',
+          success: function (data) {
+              $('#sugestoes').html("");
+
+              if (data.items) {
+                  for (var i = 0; i < Math.min(5, data.items.length); i++) {
+                      var livro = data.items[i];
+                      var tituloLivro = livro.volumeInfo.title;
+                      var capaLivro = livro.volumeInfo.imageLinks ? livro.volumeInfo.imageLinks.thumbnail : '';
+                      livros.push(livro);
+
+                      var sugestao = $('<div id="s-'+i+'" class="sugestao"">');
+                      sugestao.append('<img src="' + capaLivro + '" alt="Capa do livro">');
+                      sugestao.append('<p>' + tituloLivro + '</p>');                      
+
+                      sugestao.click(function () {
+                        var idx = $(this).attr('id').split('-')[1];
+                        var livroClicado = livros[idx];
+                        
+                        $('#titulo').val($(this).next('p').text());
+                        $('#sugestoes').empty();
+                        exibirInformacoesLivro(livroClicado);
+                      });
+                      $('#sugestoes').append(sugestao);
+                  }
+              }
+          },
+          error: function (error) {
+            console.log('Erro na solicitação AJAX:', error);
+          }
+      });
+    }
+  });
+
+  function exibirInformacoesLivro(livro) {
+    var tituloLivro = livro.volumeInfo.title;
+    var descricaoLivro = livro.volumeInfo.description ? livro.volumeInfo.description : '';
+    var autorLivro = livro.volumeInfo.authors ? livro.volumeInfo.authors.join(', ') : '';
+    var numPaginasLivro = livro.volumeInfo.pageCount ? livro.volumeInfo.pageCount : '';
+    var capaLivro = livro.volumeInfo.imageLinks ? livro.volumeInfo.imageLinks.thumbnail : '';
+    
+    $("#titulo").val(tituloLivro);
+    $("#descricao").val(descricaoLivro);
+    $("#autor").val(autorLivro);
+    $("#n_paginas").val(numPaginasLivro);
+    
+    if(capaLivro != '') {
+      $("#imagemLivro").attr('src', capaLivro);
+      $("#capa-externa").val(capaLivro);
+    }
+  }
+});
 </script>

@@ -53,7 +53,11 @@
     <div class="col-md-3 mb-4">
       <div class="card card-items-list <?=(str_replace(' ', '_', $item['categoria']))?>">
           <a href="#" data-toggle="modal" data-target="#bookModal<?= $item['id'] ?>">
-            <img src="<?= UPLOAD . $item['capa'] ?>" class="card-img-top" alt="Capa do Livro">
+            <?php if (strpos($item['capa'], "books.google") !== false) : ?>
+              <img src="<?= $item['capa'] ?>" class="card-img-top" alt="Capa do Livro">
+              <? else : ?>
+                <img src="<?= UPLOAD . $item['capa'] ?>" class="card-img-top" alt="Capa do Livro">
+            <? endif; ?>
           </a>
           <div class="card-body">
             <a href="#" data-toggle="modal" data-target="#bookModal<?= $item['id'] ?>" class="wl">

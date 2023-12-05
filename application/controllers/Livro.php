@@ -88,8 +88,12 @@ class Livro extends MY_Controller {
 
           if($acao == "adicionar")
             $dados['capa'] = "capa_padrao.png";
-          else 
+          else
             $dados['capa'] = $this->Livro_model->getLivroById($livro_id)["capa"];
+
+          if(!empty($this->input->post('capa-externa')))
+            $dados['capa'] = $this->input->post('capa-externa');
+          
         }
         
         if($data['errors'] == null || $data['errors'] == "<p>Nenhum arquivo foi selecionado.</p>") {
