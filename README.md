@@ -34,9 +34,7 @@ BiblioTrack - App de gerenciamento de livros em CodeIgniter
   
 
 ```bash
-
 git clone https://github.com/oitom/biblio-track.git
-
 ```
 
   
@@ -46,9 +44,7 @@ git clone https://github.com/oitom/biblio-track.git
   
 
 ```bash
-
 cd biblio-track
-
 ```
 
   
@@ -58,17 +54,13 @@ cd biblio-track
   
 
 ```bash
-
 docker-compose up -d
-
 ```
 
 4. Aguarde alguns segundos até os seviços ficarem prontos.
 
 ```
-
 Isso pode levar até 30 segundos.
-
 ```
 
   
@@ -78,9 +70,7 @@ Isso pode levar até 30 segundos.
   
 
 ```
-
 docker-compose exec web php index.php migrate
-
 ```
 
   
@@ -96,17 +86,14 @@ docker-compose exec web php index.php migrate
 8. Você pode acessar a plataforma usando os dados abaixo:
 
 ```
-
 e-mail: admin@email.com
 
 senha: admin
 
   
-
 e-mail: joao@email.com
 
 senha: joao
-
 ```
 
 9. Para parar os contêineres, execute:
@@ -114,7 +101,5 @@ senha: joao
   
 
 ```bash
-
 docker-compose down
-
 ```
