@@ -27,13 +27,27 @@
 <div class="row">
   <div class="row">
       <div class="col-6">
-          <p class="text-muted itc">Foram encontrados <em><?=count($items)?> livros</em> para sua busca.</p>
+        <?php if($total_geral > 0) : ?>
+          <p class="text-muted itc">Foram encontrados <em><?=$total?> livros</em> para sua busca.</p>
+        <? endif; ?>
       </div>
       <div class="col-6">
+        <?php if(isset($_GET['filtro']) || isset($_GET['categoria'])) : ?>
           <p class="text-muted itc"><a href="/livro/meus-livros">Limpar</a></p>
+        <? endif; ?>
       </div>
   </div>
 
+  <?php if($total_geral == 0) : ?>
+    <div class="div-alert text-center mt-5">
+      <h3>
+        Parece que ainda não registrou nenhum livro! 😕
+      </h3>
+      <p class="text-muted">Clique no botão abaixo para iniciar sua jornada literária em nossa plataforma.</p>
+      <a href="/livro" class="btn btn-primary formulario_btn">Cadastrar livro</a>
+    </div>
+  <? endif; ?>
+  
   <!-- Items -->
   <?php foreach ($items as $item): ?>
     <div class="col-md-3 mb-4">
@@ -109,9 +123,7 @@
 </div>
 
 <!-- Paginação -->
-<?php if (count($items) >= 9) : ?>
 <?= $this->pagination->create_links(); ?>
-<?php endif; ?>
 <!-- Paginação -->
 
 <script>

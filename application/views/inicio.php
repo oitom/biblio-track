@@ -1,9 +1,9 @@
 <section id="slider-section">
     <div class="containder-fluid">
       <h1>
-        Seu <em>livro</em> aqui!
+        Organize sua<br>jornada <em>literária!</em>
       </h1>
-      <h6>Gerencie os seus livros de forma fácil em nossa plataforma.</h6>
+      <h6> O Biblio Track é o seu companheiro perfeito para gerenciar os livros que você já leu, aqueles que deseja ler e os que estão atualmente em suas mãos.</h6>
       <div class="btns-home">
         <a href="/login">Login</a>
         <a href="/cadastre-se">Cadastar-se</a>

@@ -26,7 +26,7 @@ class Livro extends MY_Controller {
 
     $config['base_url'] = base_url('livro/meus-livros');
     $config['total_rows'] = $this->Livro_model->count_livros_filtrados($filtro, $categoria);
-    $config['per_page'] = 9;
+    $config['per_page'] = PER_PAGE;
     $config['uri_segment'] = 3;
     $config['suffix'] = '?' . http_build_query(['filtro' => $filtro, 'categoria' => $categoria]);
 
@@ -36,7 +36,9 @@ class Livro extends MY_Controller {
     $data = array(
       "clima"=> $dados_clima, 
       "categorias" => $dados_categoria,
-      "items"=> $data['items']
+      "items"=> $data['items'],
+      'total'=> $config['total_rows'],
+      'total_geral'=> $this->Livro_model->count_livros_usuario(),
     );
 		$this->loadView('livro/meus-livros', $data);
   }

@@ -319,6 +319,12 @@ i.bi.bi-thermometer-high {
 .wl{
   text-decoration: none!important;
 }
+.div-alert > h3 {
+  font-size: 22px;
+}
+.div-alert > .formulario_btn {
+  background-color: #1abc9c;
+}
 /* Estilos para telas menores, como tablets e smartphones */
 @media (max-width: 768px) {
   #slider-section>div {

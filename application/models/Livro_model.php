@@ -36,6 +36,9 @@ class Livro_model extends CI_Model {
 
   public function count_livros_filtrados($filtro = null, $categoria = null)
   {
+    $usuario_id = $this->session->userdata('user_id');
+    $this->db->where('usuario_id', $usuario_id);
+
     if (!empty($filtro)) {
       $this->db->group_start();
       $this->db->like('titulo', $filtro);
@@ -48,6 +51,13 @@ class Livro_model extends CI_Model {
       $this->db->where('categoria', $categoria);
     }
     
+    return $this->db->count_all_results('livros');
+  }
+
+  public function count_livros_usuario()
+  {
+    $usuario_id = $this->session->userdata('user_id');
+    $this->db->where('usuario_id', $usuario_id);
     return $this->db->count_all_results('livros');
   }
 
