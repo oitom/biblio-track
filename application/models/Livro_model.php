@@ -1,5 +1,11 @@
 <?php
 class Livro_model extends CI_Model {
+  public function getLivroById($livro_id) 
+  {
+    $this->db->where('id', $livro_id);
+    return $this->db->get('livros')->row_array();
+  }
+
   public function getLivroByFiltro($filtro = null, $categoria = null, $limit = null, $offset = null) 
   {
     $usuario_id = $this->session->userdata('user_id');
@@ -63,4 +69,22 @@ class Livro_model extends CI_Model {
     }
   }
 
+  public function inserir_livro($dados_livro) 
+  {
+    $this->db->insert('livros', $dados_livro);
+
+    if ($this->db->affected_rows() > 0) {
+      return $this->db->insert_id();
+    } else {
+      return FALSE;
+    }
+  }
+
+  public function update_livro($livro_id, $dados_livro) 
+  {
+    $this->db->where('id', $livro_id);
+    $this->db->update('livros', $dados_livro);
+
+    return $this->db->affected_rows() > 0;
+  }
 }

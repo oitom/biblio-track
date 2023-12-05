@@ -82,6 +82,15 @@ section#slider-section {
   width: 100%;
   padding: 0 0 0 10px;
 }
+.formulario_textarea {
+  background: #fff none repeat scroll 0 0;
+  border: 1px solid #e1e1e1;
+  border-radius: 0;
+  height: 150px;
+  width: 100%;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+}
 .formulario_input:focus {
   border-color: #26d5b8; /* Cor da borda quando o input está em foco */
 }
