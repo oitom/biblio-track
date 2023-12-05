@@ -81,7 +81,13 @@ class Livro extends MY_Controller {
     $this->loadView('livro', $body);
   }
 
-  public function getLivrosCadastro()
+  public function excluir($livro_id)
+  {
+    $this->Livro_model->excluirLivro($livro_id);
+    redirect('/principal');
+  }
+
+  private function getLivrosCadastro()
   {
     return array(
       "titulo" => "",
@@ -93,7 +99,7 @@ class Livro extends MY_Controller {
     );
   }
 
-  public function getOpcoesCategorias()
+  private function getOpcoesCategorias()
   {
     return array(
       'quero ler' => 'Quero ler', 
@@ -102,7 +108,7 @@ class Livro extends MY_Controller {
     );
   }
 
-  public function getDadosPost()
+  private function getDadosPost()
   {
     $dados = array(
       'usuario_id' => $this->session->userdata('user_id'),

@@ -42,11 +42,15 @@
             <img src="<?= UPLOAD . $item['capa'] ?>" class="card-img-top" alt="Capa do Livro">
           </a>
           <div class="card-body">
+            <a href="#" data-toggle="modal" data-target="#bookModal<?= $item['id'] ?>" class="wl">
             <h5 class="card-title card-items-title">
-              <?= $item['titulo'] ?>
-              <em><?=ucwords($item['categoria']) ?></em>
-            </h5>
-            <p class="card-text card-items-desc"><?= (mb_strlen($item['descricao']) > 66 ? mb_substr($item['descricao'], 0, 66) . '...' : $item['descricao'])?></p>
+                <?= $item['titulo'] ?>
+                <em><?=ucwords($item['categoria']) ?></em>
+              </h5>
+            </a>
+            <a href="#" data-toggle="modal" data-target="#bookModal<?= $item['id'] ?>" class="wl">
+              <p class="card-text card-items-desc"><?= (mb_strlen($item['descricao']) > 66 ? mb_substr($item['descricao'], 0, 66) . '...' : $item['descricao'])?></p>
+            </a>
           </div>
       </div>
     </div>
@@ -90,10 +94,10 @@
               </div>
               <div class="modal-footer justify-content-between">
                 <div class="mr-auto">
-                    <a href="/" class="btn btn-secondary">Editar</a>
+                  <a href="/livro/<?=$item['id']?>" class="btn btn-secondary">Editar</a>
                 </div>  
                 <div>
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Excluir</button>
+                  <a href="/livro/<?=$item['id']?>" data-livro-id="<?=$item['id']?>" class="btn btn-danger remover-livro">Excluir</a>
                 </div>
               </div>
           </div>
@@ -119,4 +123,16 @@
   if (categoria) {
     $('#categoria').val(categoria);
   }
+
+  $(document).ready(function() {
+    $(".remover-livro").click(function(e) {
+      e.preventDefault();
+      const livro_id = $(this).data('livro-id');
+      const confirmacao = confirm('Tem certeza que deseja excluir este livro?');
+      
+      if (confirmacao) {
+        window.location.href = '/livro/excluir/' + livro_id;
+      }
+    });
+  });
 </script>

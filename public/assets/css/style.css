@@ -316,6 +316,9 @@ i.bi.bi-thermometer {
 i.bi.bi-thermometer-high {
   color: #e75151;
 }
+.wl{
+  text-decoration: none!important;
+}
 /* Estilos para telas menores, como tablets e smartphones */
 @media (max-width: 768px) {
   #slider-section>div {

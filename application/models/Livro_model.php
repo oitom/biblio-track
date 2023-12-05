@@ -87,4 +87,10 @@ class Livro_model extends CI_Model {
 
     return $this->db->affected_rows() > 0;
   }
+
+  public function excluirLivro($livro_id)
+  {
+    $this->db->where('id', $livro_id);
+    $this->db->delete('livros');
+  }
 }

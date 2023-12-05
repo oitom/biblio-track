@@ -19,7 +19,7 @@ class Migration_Create_Livros extends CI_Migration {
       ),
       'descricao' => array(
         'type' => 'VARCHAR',
-        'constraint' => '100',
+        'constraint' => '300',
       ),
       'autor' => array(
         'type' => 'VARCHAR',
@@ -31,7 +31,7 @@ class Migration_Create_Livros extends CI_Migration {
       ),
       'capa' => array(
         'type' => 'VARCHAR',
-        'constraint' => '30',
+        'constraint' => '300',
       ),
       'categoria' => array(
         'type' => 'ENUM("quero ler", "lendo", "ja li")',

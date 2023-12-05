@@ -56,3 +56,4 @@ $route['cadastre-se'] = 'cadastro';
 $route['recuperar-minha-senha'] = 'esquecisenha';
 $route['recuperar-minha-senha/senha_solicitada'] = 'esquecisenha/senha_solicitada';
 $route['livro/(:num)?'] = 'livro/index/$1';
+$route['livro/excluir/(:num)'] = 'livro/excluir/$1';

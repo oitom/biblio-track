@@ -36,12 +36,21 @@ BiblioTrack - App de gerenciamento de livros em CodeIgniter 3
     docker-compose exec web php index.php migrate
     ```
 
-6. O projeto estará acessível em [http://localhost:8080](http://localhost:8080).
+6. O projeto estará acessível em  [http://localhost:8080](http://localhost:8080).
 
-## Parando os contêineres
+7. Você pode criar uma nova conta pelo link [http://localhost:8080/cadastre-se](http://localhost:8080/cadastre-se) OU 
 
-Para parar os contêineres, execute:
+8. Você pode acessar a plataforma usando os dados abaixo: 
+   
+    ```
+    e-mail: admin@email.com
+    senha: admin
 
-```bash
-docker-compose down
-```
+    e-mail: joao@email.com 
+    senha: joao
+    ```
+9. Para parar os contêineres, execute:
+
+    ```bash
+    docker-compose down
+    ```
