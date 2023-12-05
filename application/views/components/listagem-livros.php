@@ -8,7 +8,7 @@
     </div>
     <div class="col-md-4">
       <div class="form-group">
-          <select class="form-control" id="categoria" name="categoria">
+          <select class="form-control mb-3" id="categoria" name="categoria">
               <option value="">Todas as Categorias</option>
               <option value="quero ler">Quero Ler</option>
               <option value="ja li">Já Li</option>
@@ -18,7 +18,7 @@
     </div>
     <div class="col">
       <div class="input-group-append">
-        <button class="btn btn-primary" type="submit" id="buscar-btn" >Buscar</button>
+        <button class="btn btn-primary mb-3" type="submit" id="buscar-btn" >Buscar</button>
       </div>
     </div>
   </div>
@@ -52,7 +52,7 @@
   <?php foreach ($items as $item): ?>
     <div class="col-md-3 mb-4">
       <div class="card card-items-list <?=(str_replace(' ', '_', $item['categoria']))?>">
-          <a href="#" data-toggle="modal" data-target="#bookModal<?= $item['id'] ?>">
+          <a href="#" data-toggle="modal" data-target="#bookModal<?= $item['id'] ?>" class="a-img">
             <?php if (strpos($item['capa'], "books.google") !== false) : ?>
               <img src="<?= $item['capa'] ?>" class="card-img-top" alt="Capa do Livro">
               <? else : ?>
@@ -60,14 +60,14 @@
             <? endif; ?>
           </a>
           <div class="card-body">
-            <a href="#" data-toggle="modal" data-target="#bookModal<?= $item['id'] ?>" class="wl">
+            <a href="#" data-toggle="modal" data-target="#bookModal<?= $item['id'] ?>" class="wl a-tit">
             <h5 class="card-title card-items-title">
                 <?= $item['titulo'] ?>
                 <em><?=ucwords($item['categoria']) ?></em>
               </h5>
             </a>
-            <a href="#" data-toggle="modal" data-target="#bookModal<?= $item['id'] ?>" class="wl">
-              <p class="card-text card-items-desc"><?= (mb_strlen($item['descricao']) > 66 ? mb_substr($item['descricao'], 0, 66) . '...' : $item['descricao'])?></p>
+            <a href="#" data-toggle="modal" data-target="#bookModal<?= $item['id'] ?>" class="wl a-desc">
+              <p class="card-text card-items-desc"><?= (mb_strlen($item['descricao']) > 60 ? mb_substr($item['descricao'], 0, 60) . '...' : $item['descricao'])?></p>
             </a>
           </div>
       </div>
@@ -112,7 +112,7 @@
               </div>
               <div class="modal-footer justify-content-between">
                 <div class="mr-auto">
-                  <a href="/livro/<?=$item['id']?>" class="btn btn-secondary">Editar</a>
+                  <a href="/livro/<?=$item['id']?>" class="btn btn-secondary btn-edit">Editar</a>
                 </div>  
                 <div>
                   <a href="/livro/<?=$item['id']?>" data-livro-id="<?=$item['id']?>" class="btn btn-danger remover-livro">Excluir</a>

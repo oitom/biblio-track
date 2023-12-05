@@ -19,7 +19,7 @@ class Migration_Create_Livros extends CI_Migration {
       ),
       'descricao' => array(
         'type' => 'VARCHAR',
-        'constraint' => '300',
+        'constraint' => '1000',
       ),
       'autor' => array(
         'type' => 'VARCHAR',

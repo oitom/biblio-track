@@ -45,7 +45,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <?= form_label('Descrição:', 'descricao', ['class' => 'formulario_label']); ?>
-                  <?= form_textarea(['name' => 'descricao', 'id' => 'descricao', 'class' => 'form-control formulario_textarea', 'required' => 'required', 'rows' => '14', 'maxlength' => '300', 'value' => set_value('descricao', $dados['descricao'])]); ?>
+                  <?= form_textarea(['name' => 'descricao', 'id' => 'descricao', 'class' => 'form-control formulario_textarea', 'required' => 'required', 'rows' => '14', 'maxlength' => '1000', 'value' => set_value('descricao', $dados['descricao'])]); ?>
                 </div>
               </div>
               <div class="col-md-6">
@@ -80,7 +80,7 @@
               </div>
 
               
-              <div class="col-md-6">
+              <div class="col-md-6 col-sm-6">
                 <div class="form-group">
                   <?= form_label('Capa do livro atual:', 'capa_atual', ['class' => 'formulario_label']); ?>
 
@@ -142,7 +142,7 @@ $(document).ready(function () {
                   for (var i = 0; i < Math.min(5, data.items.length); i++) {
                       var livro = data.items[i];
                       var tituloLivro = livro.volumeInfo.title;
-                      var capaLivro = livro.volumeInfo.imageLinks ? livro.volumeInfo.imageLinks.thumbnail : '';
+                      var capaLivro = livro.volumeInfo.imageLinks ? livro.volumeInfo.imageLinks.thumbnail : 'http://localhost:8080/public/assets/upload/capa_padrao.png';
                       livros.push(livro);
 
                       var sugestao = $('<div id="s-'+i+'" class="sugestao"">');

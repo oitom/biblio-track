@@ -346,8 +346,115 @@ div#sugestoes {
   display: block;
   float: left;
 }
-/* Estilos para telas menores, como tablets e smartphones */
-@media (max-width: 768px) {
+.a-img {
+  display: block;
+  max-height: 200px;
+  min-height: 200px
+}
+.a-img>img{
+  width: 50%;
+  margin-top: 21px;
+}
+.a-tit {
+  display: block;
+  min-height: 70px;
+  overflow: hidden;
+  max-height: 70px;
+}
+.a-tit > h5 {
+  font-size: 16px;
+  margin-top: 5px;
+}
+.a-desc {
+  width: 100%;
+  display: block;
+  height: 50px;
+  min-height: 50px;
+  max-height: 50px;
+  overflow: hidden;
+}
+.a-desc > p {
+  text-align: center;
+  color: #615d5d;
+}
+p.modal-desc {
+  font-size: 14px;
+  text-align: justify;
+  line-height: 23px;
+}
+.list-group-item>p {
+  font-size: 14px;
+  color: #5f5f65;
+}
+.btn-edit{
+  background: #1abc9c;
+  color: #000;
+  border: 1px solid #2a8573;
+}
+
+@media only screen and (max-width: 1389px) {
+  .a-img {
+    max-height: 170px;
+    min-height: 170px;
+  }
+  .a-desc {
+    min-height: 70px;
+    max-height: 70px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .a-img>img {
+    width: 50%;
+    margin-top: 21px;
+  }
+  .a-img {
+    display: block;
+    max-height: 150px;
+    min-height: 150px;
+  }
+  .a-desc {
+    width: 100%;
+    display: block;
+    height: 50px;
+    min-height: 90px;
+    max-height: 90px;
+    overflow: hidden;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .col-md-3 {
+    flex: 0 0 auto;
+    width: 33%;
+  }
+  .col-md-4 {
+    flex: 0 0 auto;
+    width: 49.333333%;
+  }
+  .col-md-6 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .card-menu {
+    height: 125px;
+  }
+  .clima_tempo {
+    height: 125px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .col-md-3 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+  .col-md-4 {
+    flex: 0 0 auto;
+    width: 49.333333%;
+  }
+  .col-md-6 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
   #slider-section>div {
     width: 80%;
   }
@@ -364,7 +471,35 @@ div#sugestoes {
     width: 100%;
     margin: 8px 0;
   }
+  .a-img>img {
+    width: 30%;
+    margin-top: 21px;
+  }
+  .a-img {
+    display: block;
+    max-height: 150px;
+    min-height: 150px;
+  }
+}
 
+@media only screen and (max-width: 450px) {
+  .col-md-3 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .col-md-4 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .col-md-6 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .a-img {
+    display: block;
+    max-height: 190px;
+    min-height: 190px;
+  }
 }
 @media (min-width: 992px) {
   .col-lg-3 {
