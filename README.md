@@ -2,6 +2,7 @@
 # biblio-track
 
   
+![Logo](https://raw.githubusercontent.com/oitom/biblio-track/main/public/assets/images/logo-min.png)
 
 BiblioTrack - App de gerenciamento de livros em CodeIgniter
 
