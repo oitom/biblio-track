@@ -9,7 +9,13 @@ class BiblioTrack extends MY_Controller {
 	
   public function index()
 	{
-		$this->loadView('inicio');
+    $this->load->database();
+    $tabela = 'usuarios';
+    if (!$this->db->table_exists($tabela)) {
+      $this->loadView('instalacao');
+    } else {
+      $this->loadView('inicio');
+    }
 	}
 
   public function login() 
