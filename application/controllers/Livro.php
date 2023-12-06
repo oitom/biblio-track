@@ -60,6 +60,14 @@ class Livro extends MY_Controller {
     if(!empty($livro_id)) {
       $acao = "editar";
       $dados = $this->Livro_model->getLivroById($livro_id);
+
+      if(!$dados) {
+        redirect('biblioTrack/error_404');
+      }
+      
+      if($dados["usuario_id"] !=  $this->session->userdata('user_id')) {
+        redirect('biblioTrack/error_403');
+      }
     }
     else {
       $livro_id = "";

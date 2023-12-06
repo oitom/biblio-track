@@ -23,7 +23,7 @@ class MY_Controller extends CI_Controller {
 
   public function validarSessao() 
   {
-    if (!($user_id = $this->session->userdata('user_id')) || !($expire_time = $this->session->userdata('expire_time')) > time()) {
+    if (!($user_id = $this->session->userdata('user_id')) || !(($expire_time = $this->session->userdata('expire_time')) > time())) {
       $this->session->sess_destroy(); 
       redirect('/login');
     }

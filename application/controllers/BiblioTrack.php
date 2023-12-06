@@ -64,4 +64,14 @@ class BiblioTrack extends MY_Controller {
     $this->session->sess_destroy(); 
     redirect('inicio');
   }
+
+  public function error_404()
+  {
+    $this->loadView('404');
+  }
+
+  public function error_403()
+  {
+    $this->loadView('403');
+  }
 }
