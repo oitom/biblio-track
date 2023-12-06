@@ -6,15 +6,16 @@
 
 BiblioTrack - App de gerenciamento de livros em CodeIgniter
 
-> Foram utilizados as seguintes tecnologias:
- - CodeIgniter v3
- - Bootstrap 5.3
- - Jquery 3.6
- - API Google Books V1
- - API HG Brasil Weather
- - API ViaCEP
- - Docker V3
- - MySQL 5.7
+[![CodeFactor](https://www.codefactor.io/repository/github/oitom/biblio-track/badge/main)](https://www.codefactor.io/repository/github/oitom/biblio-track/overview/main)
+
+**`CodeIgniter v3`**
+**`Bootstrap 5.3`**
+**`Jquery 3.6`**
+**`API Google Books V1`**
+**`API HG Brasil Weather`**
+**`API ViaCEP`**
+**`Docker V3`**
+**`MySQL 5.7`**
 
   
 
