@@ -123,7 +123,11 @@ section#slider-section {
   font-size: 13px;
   display: block;
   float: right;
-  margin-top: 12px;
+}
+a.btn.btn-primary.formulario_btn.formulario_lr {
+  font-size: 12px;
+  padding: 0px 8px;
+  text-transform: math-auto;
 }
 .formulario_lr>a{
   color: #000;
@@ -405,6 +409,21 @@ p.modal-desc {
   color: #000;
   border: 1px solid #2a8573;
 }
+.h-header{
+  font-size: 45px;
+  font-weight: 600;
+}
+.h-header>em, .h-desc>em{
+  color: #e59285;
+}
+.h-desc {
+  color: #6d6a6a;
+}
+.frm-login {
+  margin-top: 0;
+}
+
+
 
 @media only screen and (max-width: 1389px) {
   .a-img {

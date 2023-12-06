@@ -8,9 +8,9 @@
 <section id="book">
   <div class="container mt-5 mb-180">
     <div class="row justify-content-center">
-        <div class="col-md-10">
-          <?php $this->load->view('components/listagem-livros'); ?>
-        </div>
+      <div class="col-md-10">
+        <?php $this->load->view('components/listagem-livros'); ?>
+      </div>
     </div>
   </div>
 </section>

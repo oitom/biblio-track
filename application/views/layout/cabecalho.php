@@ -17,37 +17,35 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light nav-bg">
-    <div class="container">
-        <!-- Logo à Esquerda -->
-        <a class="navbar-brand" href="/">
-            <img src="<?= IMAGES ?>logo.png" width="40" height="40" class="d-inline-block align-top" alt="Logo">
-            Biblio Track
-        </a>
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="<?= IMAGES ?>logo.png" width="40" height="40" class="d-inline-block align-top" alt="Logo"> Biblio Track
+    </a>
 
-        <!-- Botão de Alternância para Tamanhos Pequenos -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <!-- Itens da Navegação -->
-        <?php if($header["session_data"]) { ?>
-        <div class="collapse navbar-collapse " id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/livro/meus-livros">Meus livros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/livro">Novo Livro</a>
-                </li>
-            </ul>
-        </div>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/sair">Sair</a>
-                </li>
-            </ul>
-        </div>
-        <?php  } ?>
-    </div>
+    <?php if($header["session_data"]) : ?>
+      
+      <div class="collapse navbar-collapse " id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/livro/meus-livros">Meus livros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/livro">Novo Livro</a>
+          </li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/sair">Sair</a>
+          </li>
+        </ul>
+      </div>
+
+    <?php  endif; ?>
+  </div>
 </nav> 

@@ -1,5 +1,6 @@
 <?php
 class Endereco_model extends CI_Model {
+  
   public function getEnderecoByUser($usuario_id) 
   {
     $this->db->where('usuario_id', $usuario_id);

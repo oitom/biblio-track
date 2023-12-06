@@ -5,17 +5,20 @@
         <?php if ($acao == "adicionar"): ?>
           <h2 class="mb-4">Novo livro</h2>
         <?php else: ?>
-            <h2 class="mb-4">Editar Livro</h2>
+          <h2 class="mb-4">Editar Livro</h2>
         <?php endif; ?>
 
         <div class="formulario">
           <?php if (isset($erro) && !empty($erro)) : ?>
+
             <div class="alert alert-danger">
               <?php echo $erro; ?>
             </div>
+
           <?php endif; ?>
 
           <?php if ($acao_realizada == 1) : ?>
+
             <div class="alert alert-success">
               <p>Livro <?=($acao== 'adicionar' ? 'cadastrado': 'editado')?> com sucesso!</p>
               <script>
@@ -26,11 +29,12 @@
                 });
               </script>              
             </div>
+
           <?php endif; ?>
           
           <?= form_open("livro/$livro_id", ['method' => 'post', 'enctype' => 'multipart/form-data']); ?>
+
             <div class="row"> 
-              
               <div class="col-md-12">
                 <div class="form-group">
                   <?= form_label('Título:', 'titulo', ['class' => 'formulario_label']); ?>
@@ -75,12 +79,9 @@
                   <input type="hidden" name="capa-externa" id="capa-externa">
                 </div>
               </div>
-
-              
               <div class="col-md-6 col-sm-6">
                 <div class="form-group">
                   <?= form_label('Capa do livro atual:', 'capa_atual', ['class' => 'formulario_label']); ?>
-
                   <?php if (strpos($dados['capa'], "books.google") !== false) : ?>
                     <img id="imagemLivro" src="<?= $dados['capa'] ?>" class="card-img-top" alt="Capa do Livro">
                   <? else : ?>
@@ -88,14 +89,14 @@
                   <? endif; ?>
                 </div>
               </div>
-              
             </div>
 
             <div class="row mt-5">
                 <div class="col">
-                    <?= form_submit(['type' => 'submit', 'value' => ($acao == 'adicionar' ? 'Cadastrar' : 'Atualizar'), 'class' => 'btn btn-primary formulario_btn']); ?>
+                  <?= form_submit(['type' => 'submit', 'value' => ($acao == 'adicionar' ? 'Cadastrar' : 'Atualizar'), 'class' => 'btn btn-primary formulario_btn']); ?>
                 </div>
             </div>
+
           <?= form_close(); ?>
         </div>
     </div>
@@ -103,21 +104,18 @@
 </div>
 <script>
   function exibirImagemSelecionada() {
-        var inputImagem = document.getElementById('capa');
-        var imagemLivro = document.getElementById('imagemLivro');
+    var inputImagem = document.getElementById('capa');
+    var imagemLivro = document.getElementById('imagemLivro');
 
-        if (inputImagem.files && inputImagem.files[0]) {
-            var leitor = new FileReader();
+    if (inputImagem.files && inputImagem.files[0]) {
+      var leitor = new FileReader();
 
-            leitor.onload = function (e) {
-              console.log(e);
-              console.log(e.target.result);
-              imagemLivro.src = e.target.result;
-            };
-
-            leitor.readAsDataURL(inputImagem.files[0]);
-        }
+      leitor.onload = function (e) {
+        imagemLivro.src = e.target.result;
+      };
+      leitor.readAsDataURL(inputImagem.files[0]);
     }
+  }
 </script>
 <script>
   $(document).ready(function () {
@@ -129,41 +127,40 @@
 
       if (titulo.length >= 5) {
         $.ajax({
-            url: apiUrl,
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                $('#sugestoes').html("");
+          url: apiUrl,
+          type: 'GET',
+          dataType: 'json',
+          success: function (data) {
+            $('#sugestoes').html("");
 
-                if (data.items) {
-                    for (var i = 0; i < Math.min(5, data.items.length); i++) {
-                        var livro = data.items[i];
-                        console.log(livro);
-                        var tituloLivro = livro.volumeInfo.title;
-                        var capaLivro = livro.volumeInfo.imageLinks ? livro.volumeInfo.imageLinks.thumbnail : 'http://localhost:8080/public/assets/upload/capa_padrao.png';
-                        var autorLivro = livro.volumeInfo.authors ? livro.volumeInfo.authors.join(', ') : '';
-                        livros.push(livro);
+            if (data.items) {
+              for (var i = 0; i < Math.min(5, data.items.length); i++) {
+                var livro = data.items[i];
+                var tituloLivro = livro.volumeInfo.title;
+                var capaLivro = livro.volumeInfo.imageLinks ? livro.volumeInfo.imageLinks.thumbnail : 'http://localhost:8080/public/assets/upload/capa_padrao.png';
+                var autorLivro = livro.volumeInfo.authors ? livro.volumeInfo.authors.join(', ') : '';
+                livros.push(livro);
 
-                        var sugestao = $('<div id="s-'+i+'" class="sugestao"">');
-                        sugestao.append('<img src="' + capaLivro + '" alt="Capa do livro">');
-                        sugestao.append('<p class="sug-tit">' + tituloLivro + '</p>');                      
-                        sugestao.append('<p class="sug-aut">' + autorLivro + '</p>');                      
+                var sugestao = $('<div id="s-'+i+'" class="sugestao"">');
+                sugestao.append('<img src="' + capaLivro + '" alt="Capa do livro">');
+                sugestao.append('<p class="sug-tit">' + tituloLivro + '</p>');                      
+                sugestao.append('<p class="sug-aut">' + autorLivro + '</p>');                      
 
-                        sugestao.click(function () {
-                          var idx = $(this).attr('id').split('-')[1];
-                          var livroClicado = livros[idx];
-                          
-                          $('#titulo').val($(this).next('p').text());
-                          $('#sugestoes').empty();
-                          exibirInformacoesLivro(livroClicado);
-                        });
-                        $('#sugestoes').append(sugestao);
-                    }
-                }
-            },
-            error: function (error) {
-              console.log('Erro na solicitação AJAX:', error);
+                sugestao.click(function () {
+                  var idx = $(this).attr('id').split('-')[1];
+                  var livroClicado = livros[idx];
+                  
+                  $('#titulo').val($(this).next('p').text());
+                  $('#sugestoes').empty();
+                  exibirInformacoesLivro(livroClicado);
+                });
+                $('#sugestoes').append(sugestao);
+              }
             }
+          },
+          error: function (error) {
+            console.log('Erro na solicitação AJAX:', error);
+          }
         });
       }
     });

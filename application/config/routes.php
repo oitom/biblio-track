@@ -49,11 +49,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'biblioTrack';
+$route['default_controller'] = 'biblioTrack/login';
 $route['404_override'] = 'biblioTrack/error_404';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['inicio'] = 'biblioTrack/index';
+$route['inicio'] = 'biblioTrack/login';
 $route['login'] = 'biblioTrack/login';
 $route['sair'] = 'biblioTrack/sair';
 

@@ -14,7 +14,7 @@ class BiblioTrack extends MY_Controller {
     if (!$this->db->table_exists($tabela)) {
       $this->loadView('instalacao');
     } else {
-      $this->loadView('inicio');
+      $this->loadView('login');
     }
 	}
 
@@ -62,7 +62,7 @@ class BiblioTrack extends MY_Controller {
   public function sair() 
   {
     $this->session->sess_destroy(); 
-    redirect('inicio');
+    redirect('login');
   }
 
   public function error_404()

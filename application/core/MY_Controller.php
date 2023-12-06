@@ -2,11 +2,9 @@
 
 class MY_Controller extends CI_Controller {
     
-  public function __construct() 
-  {
+  public function __construct() {
     parent::__construct();
     $this->load->helper('url');
-    // $this->load->library('uri');
   }
 
   public function loadView($view, $body=null) 
@@ -88,13 +86,11 @@ class MY_Controller extends CI_Controller {
 
   public function configPaginacao()
   {
-    // Configuração da paginação
     $config['base_url'] = '';
     $config['total_rows'] = '';
     $config['per_page'] = 9;
     $config['uri_segment'] = 3;
 
-    // Estilo da paginação com Bootstrap
     $config['full_tag_open'] = '<ul class="pagination justify-content-center">';
     $config['full_tag_close'] = '</ul>';
     $config['first_link'] = FALSE;
@@ -125,7 +121,7 @@ class MY_Controller extends CI_Controller {
     $titulo = 'Biblio Track';
 
     if ($segmento1 == "") {
-      $titulo .= ' - Início';
+      $titulo .= ' - Login';
     } 
     else if ($segmento2 != "" && !is_numeric($segmento2)) {
       $titulo .= " - " . ucwords(str_replace('-', ' ', $segmento2));
