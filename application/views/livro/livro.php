@@ -18,16 +18,13 @@
           <?php if ($acao_realizada == 1) : ?>
             <div class="alert alert-success">
               <p>Livro <?=($acao== 'adicionar' ? 'cadastrado': 'editado')?> com sucesso!</p>
-
-              <?php if($acao== 'adicionar'):?>
-                <script>
-                  $(document).ready(function() {
-                    setTimeout(function() {
-                      window.location.href = '/livro/<?=$livro_id?>';
-                    }, 2000);
-                  });
-                </script>
-              <?php endif; ?>
+              <script>
+                $(document).ready(function() {
+                  setTimeout(function() {
+                    window.location.href = '/livro/meus-livros';
+                  }, 2000);
+                });
+              </script>              
             </div>
           <?php endif; ?>
           
