@@ -83,9 +83,26 @@ docker-compose exec web php index.php migrate
 
 7. Você pode criar uma nova conta pelo link [http://localhost:8080/cadastre-se](http://localhost:8080/cadastre-se) OU
 
-  
 
-8. Você pode acessar a plataforma usando os dados abaixo:
+8. Demonstrações:
+
+### Tela Inicial - Login
+![Login](./public/images/tela-login.png)
+
+### Tela Inicial - Home
+![ Home](./public/images/tela-home.png)
+
+### Tela Inicial - Home visualizar livro
+![Home visualizar livro](./public/images/tela-home-visualizar-livro.png)
+
+### Tela Novo livro
+![Tela Novo livro](./public/images/tela-novo-livro.png)
+
+### Tela Editar livro
+![Tela Editar livro](./public/images/tela-editar-livro.png)
+
+
+9. Você pode acessar a plataforma usando os dados abaixo:
 
 ```
 e-mail: admin@email.com
@@ -98,7 +115,7 @@ e-mail: joao@email.com
 senha: joao
 ```
 
-9. Para parar os contêineres, execute:
+10. Para parar os contêineres, execute:
 
   
 
